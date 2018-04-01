@@ -28,14 +28,14 @@ func parseMetric(line string) (*models.Metric, error) {
 	m := &models.Metric{}
 	// Name is a string
 	m.Name = words[0]
-	num, err := strconv.ParseUint(words[1], 10, 32)
+	num, err := strconv.ParseUint(words[2], 10, 32)
 	if err != nil {
 		return nil, err
 	}
 	// Stamp is a uint32.
 	m.Stamp = uint32(num)
 	// Value is a float64.
-	m.Value, err = strconv.ParseFloat(words[2], 64)
+	m.Value, err = strconv.ParseFloat(words[1], 64)
 	if err != nil {
 		return nil, err
 	}
